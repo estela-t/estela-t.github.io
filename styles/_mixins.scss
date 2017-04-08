@@ -1,0 +1,17 @@
+@mixin tileFont ($color: white) {
+	color: $color;
+	text-align: center;
+	position: absolute;
+	top: 40%;
+	font-size: 2rem;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+@mixin navLink {
+	font-weight: 700;
+	text-decoration: none;
+	color: black;
+	font-size: 1rem;
+	border-bottom: 0.5rem solid transparent;
+}

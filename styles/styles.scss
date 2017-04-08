@@ -1,0 +1,370 @@
+@import "normalize";
+@import "mixins";
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+body {
+	font-size: 10pt;
+}
+
+.wrapper {
+	max-width: 1280px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+// NAVIGATION ****
+
+nav {
+	background-color: white;
+	width: 100%;
+
+	.navigation {
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+		p {
+			font-style: normal;
+			font-weight: 400;
+			font-size: 2.6rem;
+			flex-grow: 2;
+			margin: 0.5rem;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			
+		}
+			li {
+				flex-grow: 1;
+				margin: 0 1rem;
+			}
+				a {
+					@include navLink;
+					display: inline-block;
+					margin: auto;
+					padding: 20px 10px;
+					text-align: right;
+					&:hover {
+						border-bottom: 0.5rem solid black;
+					}
+				}
+}
+
+// HERO ****
+.hero-image {
+	background-image: url("http://www.zerohedge.com/sites/default/files/images/user3303/imageroot/2016/11/01/20161101_DAPL6.jpg");
+	background-position: cover; 
+	width: 100%;
+	height: 40rem;
+	position: relative;
+	z-index: 2;
+
+		.transparent-container {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(255, 255, 255, 0.6);
+			z-index: 1;
+			&:before {
+			content:"";
+			width: 100%;
+			height: 0.5rem;
+			display: block;
+			background: black;
+			position: absolute;
+			top: 0%;
+			left: 0;
+			transform: translateY(-100%);
+		}
+		}
+			
+			h1 {
+				font-size: 3rem;
+				letter-spacing: 0.4rem;
+				position: absolute;
+				top: 50%;
+				padding-left: 2rem;
+			}
+				
+}
+
+// INTRO ****
+section.intro{
+	padding: 5%;
+	p {
+		color: #bbbcbc;
+		margin-bottom: 4rem;
+		line-spacing: 1rem;
+	}
+	p.first-text {
+		font-size: 3rem;
+		margin-bottom: 4.4rem;
+	}
+	p.second-text {
+		font-size: 2.4rem;
+	}
+ 	p.third-text{
+ 		font-size: 1.8rem;
+ 	}
+ 	p.fourth-text {
+ 		font-size: 1.8rem;
+ 	}
+ 	p.fifth-text {
+ 		font-size: 1.8rem;
+ 		span {
+ 			color: #303030;
+ 		}
+ 	}
+ }	
+
+
+// TILES ****
+section.tiles{
+	padding: 10%;
+
+	.tile-container {
+		position: relative;
+		width: 100%;
+		min-height: 48rem;
+	}
+	.tile {
+		position: absolute;
+		width: 33.3%;
+		height: 24rem;
+		background: white;
+		border: solid black 0.5rem;
+	}
+
+	.top-left {
+		// background: #00b19f;
+		top: 0;
+		left: 0;
+	}
+
+	.top-middle {
+		// background: #393c83;
+		left: 33.3%;	
+		a {
+			@include tileFont(#ff7980);
+			transition: all 0.3s ease;
+			&:hover {
+				font-size: 2.1rem;
+				color: black;
+				text-decoration: underline;
+				text-decoration-color: #ff7980;
+			}
+		}
+	}	
+
+	.top-right {
+		// background: #d3e1ff;
+		left: 66.6%;
+	}
+
+	.bottom-left {
+		// background: #e6eeff;
+		top: 50%;
+		a {
+			@include tileFont(#00b19f);
+			transition: all 0.3s ease;
+			&:hover {
+				font-size: 2.1rem;
+				color: black;
+				text-decoration: underline;
+				text-decoration-color: #00b19f;
+			}
+		}
+	}
+	.bottom-middle {
+		// background: #ff7980;
+		top: 50%;
+		left: 33.3%;
+	}
+
+	.bottom-right {
+		// background: #fff;
+		top: 50%;
+		left: 66.6%;
+		a {
+			@include tileFont(black);
+			transition: all 0.3s ease;
+			width: 100%;
+			&:hover {
+			font-size: 2.1rem;
+			text-decoration: underline;
+			text-decoration-color: black;
+			line-height: 3rem;
+			}
+				span {
+					padding: 0.5rem;
+					background: black;
+					color: white;
+					line-height: 3rem;
+				}
+		}
+	}	
+}
+
+// QUOTE ****
+
+section.quote {
+	padding-right: 10%; 
+	padding-left: 10%;
+	padding-bottom: 10%;
+	.quote-container {
+		width: 70%;
+	}
+		p.large-quote {
+			font-size: 3.4rem;
+			margin: 2rem;
+				span {
+					color: #00b19f;
+				}
+		}
+
+		p.author {
+			text-align: right;
+			margin-right: 6rem;
+		}
+
+		.quote-image {
+			width: 20%;
+
+		}
+}
+
+
+// FOOTER ****
+
+footer {
+	background-color: white;
+	.wrapper {
+		padding-bottom: 2rem;
+	}
+
+	.footer-column {
+		font-weight: 700;
+		font-size: 1rem;
+	
+	}
+
+	.footer-mission {
+		margin-right: 1.2rem;
+	}
+
+	.footer-social, .footer-contact, .footer-subscribe {
+		margin-top: 1.6rem;
+		width: 16rem;
+		margin-right: 4rem;
+		position: relative;
+		&:before {
+		content:"";
+		width: 100%;
+		height: 0.3rem;
+		display: block;
+		background: black;
+		position: absolute;
+		top: 0%;
+		left: 0;
+	}
+
+	footer.p {
+		padding: 1rem;
+	
+	}
+	.fa {
+		display: block;
+		color: black;
+		margin: 1rem;
+		font-size: 1.6rem;
+	}
+
+	a  {
+		text-decoration: none;
+	}
+	form {
+		margin-top: 1rem;
+		font-size: 0.8rem;
+	}
+		input#email {
+			padding: 0.6rem;
+		}
+
+		input.button {
+			border-radius: 0;
+			background: black;
+			text-transform: uppercase;
+			color: white;
+			padding: 0.6rem;
+		}
+
+		.hidden {
+			visibility: hidden;
+			display: block;
+			width: 0;
+			height: 0;
+		}
+}
+}
+
+// ALT PAGES ****
+
+.alt-nav {
+	background: white;
+
+	a { 
+		@include navLink;
+	}
+}
+
+.main-content {
+	// background: rgba(57,60,131,0.3);
+	padding: 2rem;
+
+	p {
+		font-size: 1.2rem;
+		margin-left: 10rem;
+		margin-right: 10rem;
+	}
+
+	a {
+		text-decoration-color: #ff7980;
+		color: black;
+		&:hover {
+		font-size: 1.3rem;
+		}
+	}
+}
+
+	
+	// QUERIES ****
+
+	@media (max-width: 900px) {
+		section.tiles {
+			.top-middle {
+				top: 0;
+				left: 0;
+			}
+
+			.bottom-left {
+				top: 0;
+				left: 33.3%;
+			}
+
+			.bottom-right {
+				top: 0;
+				left: 66.6%;
+			}
+		}
+	}
+
+
